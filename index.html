@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>CRUD</title>
+</head>
+<body class="bg-[#F4F4F4]">
+    <header class="bg-white p-[24px]">
+        <nav class="container  mx-auto w-full  flex items-center justify-between">
+            <div class="flex items-center w-[360px] h-[48px] bg-gray-100 rounded-lg px-3 gap-2">
+                <img src="./assets/search.svg" alt="Search" class="w-5 h-5">
+                <input type="text" placeholder="Поиск пациентов"
+                    class="flex-1 bg-transparent outline-none text-gray-700">
+                <div class="text-sm text-black text-nowrap bg-white cursor-pointer p-2 rounded-lg">
+                    <p>Ctrl + F</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-[16px]">
+                <button
+                    class="w-[211px] h-[48px] bg-[#EFEFEF] flex items-center font-bold justify-around  cursor-pointer rounded-lg"><img
+                        src="./assets/Calendar.svg" alt="calendar"> Добавить
+                    встречу</button>
+                <a href="#create"><button
+                        class="w-[211px] h-[48px] bg-[#2A85FF] text-white font-bold flex items-center cursor-pointer justify-around rounded-lg"><img
+                            src="./assets/add.svg" alt="add">Добавить
+                        пациента</button></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="mt-[40px] bg-[#F4F4F4]">
+        <div class="container max-w-6xl mx-auto grid grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-white rounded-2xl p-6 shadow">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold flex items-center gap-2">
+                        <div class="w-3 h-6 bg-[#FFBC99] rounded-md"></div>
+                        Обзор
+                    </h2>
+                    <div>
+                        <select
+                            class="outline-none font-bold border border-[#EFEFEF] rounded-lg px-3 py-2 text-[14px] text-[#6F767E]"
+                            name="" id="">
+                            <option value="">Все время</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-6 rounded-xl mb-6">
+                    <p class="text-gray-500 mb-2">Количество пациентов</p>
+                    <p class="text-3xl font-bold">1024</p>
+                </div>
+
+                <div>
+                    <h3 class="text-gray-700 font-medium mb-2">Сегодняшние встречи</h3>
+                    <div class="grid grid-cols-3 gap-4">
+
+                        <div class="bg-white p-4 rounded-xl shadow border-[#1A1D1F]">
+                            <p class="font-semibold">Абдулла Исмалиов</p>
+                            <p class="text-[#9A9FA5]  font-semibold  text-[14px] mb-2">+998 99 889 99 87</p>
+                            <p class="text-[#6F767E] font-semibold   text-[14px] mb-2">24 Мая в 08:00</p>
+                            <span
+                                class="bg-[#EFEFEF]  font-semibold text-[#1A1D1F] font-bold px-2 py-1 rounded text-xs">***
+                                UZS</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow border-gray-200">
+                            <p class="font-semibold">Абдулла Исмалиов</p>
+                            <p class="text-[#9A9FA5] font-semibold  text-[14px] mb-2">+998 99 889 99 87</p>
+                            <p class="text-[#6F767E] font-semibold  text-[14px] mb-2">24 Мая в 08:00</p>
+                            <span
+                                class="bg-[#EFEFEF] font-semibold  text-[#1A1D1F] font-bold px-2 py-1 rounded text-xs">***
+                                UZS</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow border-gray-200">
+                            <p class="font-semibold">Абдулла Исмалиов</p>
+                            <p class="text-[#9A9FA5] font-semibold  text-[14px] mb-2">+998 99 889 99 87</p>
+                            <p class="text-[#6F767E] font-semibold  text-[14px] mb-2">24 Мая в 08:00</p>
+                            <span
+                                class="bg-[#EFEFEF]  font-semibold text-[#1A1D1F] font-bold px-2 py-1 rounded text-xs">***
+                                UZS</span>
+                        </div>
+                    </div>
+                    <a href="#" class="text-[#529BFD] text-[14px] mt-3 inline-block">Посмотреть все</a>
+                </div>
+                <div class="max-w-5xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-sm">
+
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-semibold flex items-center gap-2">
+                            <div class="w-3 h-6 bg-[#CABDFF] rounded-md"></div>
+                            Пациенты
+                        </h2>
+                        <div>
+                            <select
+                                class="outline-none font-bold border border-[#EFEFEF] rounded-lg px-3 py-2 text-[14px] text-[#6F767E]"
+                                name="" id="">
+                                <option value="">Последние 7 дней</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <table class="w-full bg-white rounded-xl overflow-hidden">
+                        <thead class="bg-[#F4F4F4] text-left text-sm text-[#6F767E]">
+                            <tr>
+                                <th class="px-4 py-3">ФИО</th>
+                                <th class="px-4 py-3">Дата рождения</th>
+                                <th class="px-4 py-3">Адрес</th>
+                                <th class="px-4 py-3 text-right"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="users"></tbody>
+                    </table>
+
+
+
+
+                </div>
+            </div>
+           
+            <div>
+                <div class="container">
+                    <div class="calendar">
+                        <div class="front">
+                            <div class="current-date">
+                                <h1>Мaй</h1>
+                            </div>
+
+                            <div class="current-month">
+                                <ul class="week-days">
+                                    <li>MON</li>
+                                    <li>TUE</li>
+                                    <li>WED</li>
+                                    <li>THU</li>
+                                    <li>FRI</li>
+                                    <li>SAT</li>
+                                    <li>SUN</li>
+                                </ul>
+
+                                <div class="weeks">
+                                    <div class="first">
+                                        <span class="last-month">28</span>
+                                        <span class="last-month">29</span>
+                                        <span class="last-month">30</span>
+                                        <span class="last-month">31</span>
+                                        <span>01</span>
+                                        <span>02</span>
+                                        <span>03</span>
+                                    </div>
+
+                                    <div class="second">
+                                        <span>04</span>
+                                        <span>05</span>
+                                        <span class="event">06</span>
+                                        <span>07</span>
+                                        <span>08</span>
+                                        <span>09</span>
+                                        <span>10</span>
+                                    </div>
+
+                                    <div class="third">
+                                        <span>11</span>
+                                        <span>12</span>
+                                        <span>13</span>
+                                        <span>14</span>
+                                        <span class="active">15</span>
+                                        <span>16</span>
+                                        <span>17</span>
+                                    </div>
+
+                                    <div class="fourth">
+                                        <span>18</span>
+                                        <span>19</span>
+                                        <span>20</span>
+                                        <span>21</span>
+                                        <span>22</span>
+                                        <span>23</span>
+                                        <span>24</span>
+                                    </div>
+
+                                    <div class="fifth">
+                                        <span>25</span>
+                                        <span>26</span>
+                                        <span>27</span>
+                                        <span>28</span>
+                                        <span>29</span>
+                                        <span>30</span>
+                                        <span>31</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="back">
+                            <input placeholder="What's the event?">
+                            <div class="info">
+                                <div class="date">
+                                    <p class="info-date">
+                                        Date: <span>Jan 15th, 2016</span>
+                                    </p>
+                                    <p class="info-time">
+                                        Time: <span>6:35 PM</span>
+                                    </p>
+                                </div>
+                                <div class="address">
+                                    <p>
+                                        Address: <span>129 W 81st St, New York, NY</span>
+                                    </p>
+                                </div>
+                                <div class="observations">
+                                    <p>
+                                        Observations: <span>Be there 15 minutes earlier</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="actions">
+                                <button class="save">
+                                    Save <i class="ion-checkmark"></i>
+                                </button>
+                                <button class="dismiss">
+                                    Dismiss <i class="ion-android-close"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" id="editUserId" />
+
+
+        <!-- create page -->
+        <div id="create" class="container w-full mx-auto ">
+            <h1 class="text-[40px] font-semibold mb-6">Добавить пациента</h1>
+            <div class="bg-white rounded-xl p-8 shadow-sm">
+
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-2 h-6 bg-[#B5E4CA] rounded"></div>
+                    <h2 class="font-semibold text-lg">Личная информация</h2>
+                </div>
+
+                <form id="createForm" class="space-y-6">
+
+
+                    <div class="grid grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-[14px] mb-2 font-semibold">Имя</label>
+                            <input name="firstName" type="text" placeholder="John"
+                                class="w-full bg-[#F4F4F4] rounded-lg px-4 py-3 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-[14px] mb-2 font-semibold">Фамилия</label>
+                            <input name="lastName" type="text" placeholder="Johnaton"
+                                class="w-full bg-[#F4F4F4] rounded-lg px-4 py-3 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-[14px] mb-2 font-semibold">Отчество</label>
+                            <input name="maidenName" type="text" placeholder="Filbert"
+                                class="w-full bg-[#F4F4F4] rounded-lg px-4 py-3 outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[14px] mb-2 font-semibold">Номер телефона</label>
+                        <input name="phone" type="text"  class="w-full bg-[#F4F4F4] rounded-lg px-4 py-3 outline-none" placeholder="Number">
+                           
+                    </div>
+
+                    <div>
+                        <label class="block text-[14px] mb-2 font-semibold">Дата рождения</label>
+                        <div class="border-2 rounded-lg border-[#EFEFEF] w-72">
+                            <input name="birthDate" type="date"
+                                class="w-full bg-white rounded-lg  px-4 py-3 outline-none ">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[14px] mb-2">Адрес</label>
+                        <input name="address" type="text" class="w-full bg-[#F4F4F4] rounded-lg px-4 py-3 outline-none">
+                    </div>
+
+                    <div class="pt-4">
+                        <button class="bg-[#2A85FF] hover:bg-blue-600 text-white cursor-pointer px-6 py-3 rounded-lg">
+                            Сохранить
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
