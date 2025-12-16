@@ -127,18 +127,20 @@ function editUser(id, firstName, lastName, maidenName, phone, birthDate, address
     form.maidenName.value = maidenName;
     form.phone.value = phone;
     form.birthDate.value = birthDate
-    ? new Date(birthDate).toISOString().split("T")[0]
-    : "";
+        ? new Date(birthDate).toISOString().split("T")[0]
+        : "";
     form.address.value = address || "";
 
     document.getElementById("create")
         .scrollIntoView({ behavior: "smooth" });
 
-    document.querySelector("#create h1").innerText = "Редактировать пациента";
+
 }
 
 function resetForm() {
     form.reset();
     editUserId.value = "";
-    document.querySelector("#create h1").innerText = "Добавить пациента";
+
+    document.getElementById("Пациенты")
+        .scrollIntoView({ behavior: "smooth" });
 }
